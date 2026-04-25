@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>SaMos Tech | Solar · CCTV · Starlink · Access · Smart Home</title>
+  <!-- Google Fonts: clean modern typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free icons) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #000000;   /* deep black — rich cinema-style background */
+      font-family: 'Inter', sans-serif;
+      color: #e5e5e5;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 5%;
+    }
+
+    /* header with premium dark aesthetic */
+    .header {
+      background: linear-gradient(180deg, #0f0f0f 0%, #000000 100%);
+      border-bottom: 1px solid #222;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(2px);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 0;
+      flex-wrap: wrap;
+    }
+
+    .logo h1 {
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #E50914, #ff4d4d);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+
+    .logo span {
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: #aaa;
+      letter-spacing: 1px;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #e5e5e5;
+      font-weight: 500;
+      transition: 0.2s;
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+      color: #E50914;
+    }
+
+    /* Hero Section — premium dark theme */
+    .hero {
+      padding: 5rem 0 6rem 0;
+      background: radial-gradient(ellipse at 70% 30%, #1a1a1a 0%, #000000 80%);
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    .hero-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    .hero-text {
+      flex: 1.2;
+    }
+
+    .hero-badge {
+      background: #E50914;
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      display: inline-block;
+      margin-bottom: 1.2rem;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-text h2 {
+      font-size: 3.3rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+    }
+
+    .highlight {
+      color: #E50914;
+      border-bottom: 2px solid #E50914;
+      display: inline-block;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      color: #ccc;
+      max-width: 550px;
+      margin-bottom: 2rem;
+    }
+
+    .cta-button {
+      background: #E50914;
+      border: none;
+      padding: 0.9rem 2rem;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 6px;
+      color: white;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .cta-button:hover {
+      background: #b2070f;
+      transform: scale(1.02);
+    }
+
+    .hero-stats {
+      flex: 0.8;
+      background: rgba(20, 20, 20, 0.7);
+      backdrop-filter: blur(8px);
+      border-radius: 24px;
+      padding: 2rem;
+      border: 1px solid #333;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 0.8rem;
+    }
+
+    .stat-number {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #E50914;
+    }
+
+    /* Section common */
+    .section {
+      padding: 5rem 0;
+      border-bottom: 1px solid #1f1f1f;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      letter-spacing: -0.3px;
+    }
+
+    .section-sub {
+      color: #aaa;
+      margin-bottom: 3rem;
+      font-size: 1.1rem;
+      max-width: 700px;
+    }
+
+    /* SERVICES GRID — dark premium cards with smooth hover */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .service-card {
+      background: #111111;
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      transition: all 0.25s ease;
+      border: 1px solid #2a2a2a;
+      cursor: default;
+    }
+
+    .service-card:hover {
+      background: #1a1a1a;
+      transform: translateY(-6px);
+      border-color: #E50914;
+    }
+
+    .service-icon {
+      font-size: 2.8rem;
+      color: #E50914;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .service-card p {
+      color: #b0b0b0;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin-top: 0.8rem;
+    }
+
+    .feature-list li {
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .feature-list i {
+      color: #E50914;
+      width: 20px;
+      font-size: 0.8rem;
+    }
+
+    /* Values & Expertise */
+    .values-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+      margin-top: 2rem;
+    }
+
+    .value-item {
+      flex: 1;
+      background: #0c0c0c;
+      border-radius: 20px;
+      padding: 1.8rem;
+      text-align: center;
+      border-bottom: 3px solid #E50914;
+    }
+
+    .value-item i {
+      font-size: 2.4rem;
+      color: #E50914;
+      margin-bottom: 1rem;
+    }
+
+    /* Contact Section */
+    .contact-flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      background: #0a0a0a;
+      border-radius: 24px;
+      padding: 2rem;
+      border: 1px solid #222;
+    }
+
+    .contact-info {
+      flex: 1;
+    }
+
+    .contact-info h3, .contact-form h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.2rem 0;
+    }
+
+    .contact-detail i {
+      width: 40px;
+      height: 40px;
+      background: #1f1f1f;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #E50914;
+    }
+
+    .contact-form {
+      flex: 1;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.9rem;
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 12px;
+      color: white;
+      font-family: 'Inter', sans-serif;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #E50914;
+    }
+
+    .btn-submit {
+      background: #E50914;
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 40px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-submit:hover {
+      background: #b2070f;
+    }
+
+    footer {
+      background: #050505;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.85rem;
+      color: #6c6c6c;
+    }
+
+    .social-icons a {
+      color: #aaa;
+      margin: 0 8px;
+      font-size: 1.3rem;
+      transition: 0.2s;
+      display: inline-block;
+    }
+
+    .social-icons a:hover {
+      color: #E50914;
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .hero-text h2 {
+        font-size: 2.2rem;
+      }
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .hero-stats {
+        margin-top: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <nav class="navbar">
+        <div class="logo">
+          <h1>SaMos Tech</h1>
+          <span>Technical Service & Integration</span>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#whyus">Expertise</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero / Home section -->
+    <section id="home" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <div class="hero-badge"><i class="fas fa-microchip"></i> Next-Gen Technical Solutions</div>
+          <h2>Power, Security & <span class="highlight">Smart Living</span><br>Fully Integrated</h2>
+          <p>SaMos delivers premium solar installations, professional CCTV, Starlink high-speed internet, intelligent access control, and immersive smart home automation — engineered for modern living.</p>
+          <a href="#contact" class="cta-button"><i class="fas fa-headset"></i> Request Consultation</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">100+</div>
+            <div>Projects Delivered</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">24/7</div>
+            <div>Rapid Response</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">100%</div>
+            <div>Client Trust</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES SECTION (core services) -->
+    <section id="services" class="section">
+      <div class="container">
+        <h2 class="section-title">What We Deliver — <span style="color:#E50914;">Complete Ecosystem</span></h2>
+        <p class="section-sub">From energy independence to intelligent security and total home automation — we bring future-ready infrastructure.</p>
+        <div class="services-grid">
+          
+          <!-- Solar Installation -->
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-solar-panel"></i></div>
+            <h3>Solar Installation</h3>
+            <p>High-efficiency photovoltaic arrays, hybrid inverters, lithium storage, and real-time energy monitoring. Cut electricity costs dramatically.</p>
+            <ul class="feature-list">
+              <li><i class="fas fa-check-circle"></i> On-grid / Off-grid / Hybrid</li>
+              <li><i class="fas fa-check-circle"></i> Premium panels & inverters</li>
+              <li><i class="fas fa-check-circle"></i> Battery backup systems</li>
+              <li><i class="fas fa-check-circle"></i> Performance analytics dashboard</li>
+            </ul>
+          </div>
+
+          <!-- CCTV Systems -->
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-video"></i></div>
+            <h3>CCTV & Security</h3>
+            <p>4K resolution, AI-driven motion detection, night vision, and secure cloud/local storage. Complete surveillance for any property.</p>
+            <ul class="feature-list">
+              <li><i class="fas fa-check-circle"></i> IP & HD analog cameras</li>
+              <li><i class="fas fa-check-circle"></i> Remote viewing (any device)</li>
+              <li><i class="fas fa-check-circle"></i> Smart alerts & recording</li>
+              <li><i class="fas fa-check-circle"></i> Vandal-proof & PTZ options</li>
+            </ul>
+          </div>
+
+          <!-- Starlink Connectivity -->
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-satellite-dish"></i></div>
+            <h3>Starlink Internet</h3>
+            <p>Low-latency, high-speed satellite broadband for rural properties, remote work, and backup connectivity. Authorized installation experts.</p>
+            <ul class="feature-list">
+              <li><i class="fas fa-check-circle"></i> Standard & Flat mount kits</li>
+              <li><i class="fas fa-check-circle"></i> Obstruction analysis & mounting</li>
+              <li><i class="fas fa-check-circle"></i> Mesh network integration</li>
+              <li><i class="fas fa-check-circle"></i> 150+ Mbps, low latency</li>
+            </ul>
+          </div>
+
+          <!-- Access Control -->
+          <div class="service-card">
+            <div class="service-icon"><i class="fas fa-fingerprint"></i></div>
+            <h3>Access Control</h3>
+            <p>Biometric, RFID, keycard & smartphone-based entry systems. Full audit trails, time scheduling, and remote management.</p>
+            <ul class="feature-list">
+              <li><i class="fas fa-check-circle"></i> Fingerprint & face recognition</li>
+              <li><i class="fas fa-check-circle"></i> Magnetic locks & electric strikes</li>
+              <li><i class="fas fa-check-circle"></i> Cloud or local management</li>
+              <li><i class="fas fa-check-circle"></i> Seamless CCTV integration</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEW: Smart Home Automation dedicated service (extra card) -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+        <div class="services-grid" style="margin-top: -1rem;">
+          <div class="service-card" style="grid-column: span 2; background: #0e0e0e; border-left: 4px solid #E50914;">
+            <div class="service-icon"><i class="fas fa-microchip"></i><i class="fas fa-home" style="margin-left: 12px;"></i></div>
+            <h3>Smart Home Automation</h3>
+            <p>Transform your living or working space into an intelligent environment. Control lighting, climate, curtains, entertainment, and security from one unified app or voice assistant.</p>
+            <ul class="feature-list" style="display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 0.5rem;">
+              <li><i class="fas fa-lightbulb"></i> Smart lighting & ambiance</li>
+              <li><i class="fas fa-temperature-low"></i> Intelligent climate control</li>
+              <li><i class="fas fa-robot"></i> Voice assistant ready (Alexa/Google)</li>
+              <li><i class="fas fa-blinds"></i> Motorized blinds & curtains</li>
+              <li><i class="fas fa-plug"></i> Smart plugs & energy monitoring</li>
+              <li><i class="fas fa-door-closed"></i> Automated door locks & sensors</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full services explicit list: Solar, CCTV, Starlink, Access, Smart Home + more -->
+    <section style="background: #030303; padding: 3rem 0;">
+      <div class="container">
+        <div style="border-left: 4px solid #E50914; padding-left: 1.5rem; margin-bottom: 2rem;">
+          <h3 style="font-size: 1.7rem;">📋 Complete Technical & Automation Services</h3>
+          <p style="color: #bbb">SaMos provides end-to-end solutions across five core pillars + beyond</p>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1rem;">
+          <div><i class="fas fa-bolt" style="color:#E50914; width: 28px;"></i> Solar Panel Installation</div>
+          <div><i class="fas fa-charging-station"></i> Solar Inverter & Battery Repair</div>
+          <div><i class="fas fa-camera"></i> 4K CCTV & AI Analytics</div>
+          <div><i class="fas fa-eye"></i> Night Vision / Thermal Cameras</div>
+          <div><i class="fas fa-satellite"></i> Starlink Residential & Business</div>
+          <div><i class="fas fa-tachometer-alt"></i> Starlink Speed Optimization</div>
+          <div><i class="fas fa-fingerprint"></i> Biometric Access Control</div>
+          <div><i class="fas fa-building"></i> Turnstile & Barrier Gate Systems</div>
+          <div><i class="fas fa-microchip"></i> Smart Home Automation Hub</div>
+          <div><i class="fas fa-lightbulb"></i> Intelligent Lighting Scenes</div>
+          <div><i class="fas fa-thermometer-half"></i> Smart Thermostats & HVAC</div>
+          <div><i class="fas fa-cloud-upload-alt"></i> Cloud Surveillance Backup</div>
+          <div><i class="fas fa-mobile-alt"></i> Remote Monitoring (All-in-One App)</div>
+          <div><i class="fas fa-shield-alt"></i> Security & Alarm Integration</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why choose us / values (re-worded: no 'netflix-grade') -->
+    <section id="whyus" class="section">
+      <div class="container">
+        <h2 class="section-title">Why SaMos Tech?</h2>
+        <p class="section-sub">We blend deep technical mastery with a client-first mindset — delivering robust, future-proof systems.</p>
+        <div class="values-grid">
+          <div class="value-item">
+            <i class="fas fa-certificate"></i>
+            <h3>Certified Specialists</h3>
+            <p>Licensed electricians, certified Starlink installers, smart home engineers & security experts.</p>
+          </div>
+          <div class="value-item">
+            <i class="fas fa-sync-alt"></i>
+            <h3>Unified Integration</h3>
+            <p>Solar + CCTV + Access + Smart Home — one seamless ecosystem, managed from dashboard or voice.</p>
+          </div>
+          <div class="value-item">
+            <i class="fas fa-clock"></i>
+            <h3>Fast & Reliable</h3>
+            <p>Same-day assessments, rapid installations, and 24/7 after-sales customer care.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section with your phone number + Facebook link -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title">Let’s Build Your Smart Infrastructure</h2>
+        <p class="section-sub">Reach out for a free consultation – our engineers design the perfect system for your home or business.</p>
+        <div class="contact-flex">
+          <div class="contact-info">
+            <h3><i class="fas fa-map-marker-alt" style="color:#E50914;"></i> SaMos Technical Service</h3>
+            <p>Your trusted partner for solar, security, Starlink, access control & smart home automation.</p>
+            <div class="contact-detail">
+              <i class="fas fa-phone-alt"></i>
+              <div><strong>07018136677</strong> <br> <span style="font-size:0.8rem;">Call / WhatsApp (24/7 support)</span></div>
+            </div>
+            <div class="contact-detail">
+              <i class="fas fa-envelope"></i>
+              <div>hello@samos-tech.com</div>
+            </div>
+            <div class="contact-detail">
+              <i class="fab fa-facebook"></i>
+              <div><a href="https://web.facebook.com/profile.php?id=61580398756705" target="_blank" style="color:#E50914; text-decoration: none;">SaMos Tech on Facebook</a> <br> <span style="font-size:0.8rem;">Follow for updates & offers</span></div>
+            </div>
+            <div class="contact-detail">
+              <i class="fas fa-clock"></i>
+              <div>Mon - Sat: 8:00 AM - 7:00 PM</div>
+            </div>
+            <div class="contact-detail">
+              <i class="fab fa-starlink"></i>
+              <div>Authorised Starlink Reseller & Installer</div>
+            </div>
+          </div>
+          <div class="contact-form">
+            <h3>Request a Quote</h3>
+            <form id="contactForm" action="#" method="post">
+              <div class="form-group">
+                <input type="text" placeholder="Full Name" required>
+              </div>
+              <div class="form-group">
+                <input type="email" placeholder="Email Address" required>
+              </div>
+              <div class="form-group">
+                <input type="tel" placeholder="Phone Number">
+              </div>
+              <div class="form-group">
+                <textarea rows="3" placeholder="Tell us about your project: solar, CCTV, Starlink, access control, smart home automation..."></textarea>
+              </div>
+              <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+            </form>
+            <p style="font-size:0.75rem; margin-top: 1rem; color:#6c6c6c;">We respond in under 2 hours on business days. Call <strong>07018136677</strong> for urgent needs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 SaMos Technical Service — Solar, CCTV, Starlink, Access Control & Smart Home Automation. Precision engineering, modern living.</p>
+      <div class="social-icons" style="margin-top: 0.8rem;">
+        <a href="https://web.facebook.com/profile.php?id=61580398756705" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <p style="margin-top: 0.8rem; font-size: 0.75rem;"><i class="fas fa-phone-alt"></i> Direct line: 07018136677</p>
+    </div>
+  </footer>
+
+  <!-- simple form alert demo -->
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert("✅ Thank you! SaMos Tech will contact you shortly. Call 07018136677 for immediate assistance.");
+      this.reset();
+    });
+  </script>
+</body>
+</html>
